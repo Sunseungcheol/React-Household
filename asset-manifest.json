@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React-Household/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/React-Household/static/js/main.44aee433.chunk.js",
+    "main.js.map": "/React-Household/static/js/main.44aee433.chunk.js.map",
+    "runtime-main.js": "/React-Household/static/js/runtime-main.54fb08b5.js",
+    "runtime-main.js.map": "/React-Household/static/js/runtime-main.54fb08b5.js.map",
+    "static/js/2.058a462a.chunk.js": "/React-Household/static/js/2.058a462a.chunk.js",
+    "static/js/2.058a462a.chunk.js.map": "/React-Household/static/js/2.058a462a.chunk.js.map",
+    "static/js/3.2a155e16.chunk.js": "/React-Household/static/js/3.2a155e16.chunk.js",
+    "static/js/3.2a155e16.chunk.js.map": "/React-Household/static/js/3.2a155e16.chunk.js.map",
+    "index.html": "/React-Household/index.html",
+    "static/css/main.ab7136cd.chunk.css.map": "/React-Household/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.058a462a.chunk.js.LICENSE.txt": "/React-Household/static/js/2.058a462a.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/React-Household/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.54fb08b5.js",
+    "static/js/2.058a462a.chunk.js",
+    "static/css/main.ab7136cd.chunk.css",
+    "static/js/main.44aee433.chunk.js"
+  ]
+}
