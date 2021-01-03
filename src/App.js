@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './reset.css';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Template from './components/Template';
+import HouseholdHead from './components/HouseholdHead';
+import CategorySelect from './components/CategorySelect';
+import HouseholdList from './components/HouseholdList';
+import HouseholdCreate from './components/HouseholdCreate';
+import { HouseProvider } from './components/HouseholdContext';
+
+const GlobalStyle = createGlobalStyle`
+  body{
+    background-color:#b7b7b7;
+      }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider
+      theme={{
+        palette: {
+          blue: '#228be6',
+          pink: '#f06595',
+        },
+      }}
+    >
+      <>
+        <HouseProvider>
+          <GlobalStyle></GlobalStyle>
+          <Template>
+            <HouseholdHead></HouseholdHead>
+            <HouseholdList></HouseholdList>
+            <HouseholdCreate></HouseholdCreate>
+          </Template>
+        </HouseProvider>
+      </>
+    </ThemeProvider>
   );
 }
 
