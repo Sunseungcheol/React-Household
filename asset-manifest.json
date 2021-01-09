@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/React-Household/static/css/main.7fcc8ad9.chunk.css",
-    "main.js": "/React-Household/static/js/main.021dfa48.chunk.js",
-    "main.js.map": "/React-Household/static/js/main.021dfa48.chunk.js.map",
+    "main.js": "/React-Household/static/js/main.b48a5aff.chunk.js",
+    "main.js.map": "/React-Household/static/js/main.b48a5aff.chunk.js.map",
     "runtime-main.js": "/React-Household/static/js/runtime-main.8fd7be07.js",
     "runtime-main.js.map": "/React-Household/static/js/runtime-main.8fd7be07.js.map",
-    "static/js/2.f41a959e.chunk.js": "/React-Household/static/js/2.f41a959e.chunk.js",
-    "static/js/2.f41a959e.chunk.js.map": "/React-Household/static/js/2.f41a959e.chunk.js.map",
+    "static/js/2.cf758a11.chunk.js": "/React-Household/static/js/2.cf758a11.chunk.js",
+    "static/js/2.cf758a11.chunk.js.map": "/React-Household/static/js/2.cf758a11.chunk.js.map",
     "index.html": "/React-Household/index.html",
     "static/css/main.7fcc8ad9.chunk.css.map": "/React-Household/static/css/main.7fcc8ad9.chunk.css.map",
-    "static/js/2.f41a959e.chunk.js.LICENSE.txt": "/React-Household/static/js/2.f41a959e.chunk.js.LICENSE.txt"
+    "static/js/2.cf758a11.chunk.js.LICENSE.txt": "/React-Household/static/js/2.cf758a11.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8fd7be07.js",
-    "static/js/2.f41a959e.chunk.js",
+    "static/js/2.cf758a11.chunk.js",
     "static/css/main.7fcc8ad9.chunk.css",
-    "static/js/main.021dfa48.chunk.js"
+    "static/js/main.b48a5aff.chunk.js"
   ]
 }
