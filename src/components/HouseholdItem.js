@@ -4,6 +4,7 @@ import { MdDelete } from 'react-icons/md';
 import { ImPencil } from 'react-icons/im';
 import { useHouseholdDispatch } from './HouseholdContext';
 import Dialog from '../Dialog';
+import useInputs from './useInputs';
 
 const icons = css`
   display: flex;
@@ -112,22 +113,35 @@ function HouseholdItem({ id, title, category, text, amount }) {
     setEditDialog(true);
   };
   const onEditCancle = () => {
+    setInputs({
+      id: 0,
+      category: 'meal',
+      text: '',
+      amount: 0,
+    });
     setEditDialog(false);
   };
-  const [inputs, setInputs] = useState({
-    id: id,
-    category: category,
-    text: text,
-    amount: Number(amount),
+  // const [inputs, setInputs] = useState({
+  //   id: id,
+  //   category: 'meal',
+  //   text: text,
+  //   amount: Number(amount),
+  // });
+
+  const [inputs, setInputs, onChange, onlyNumber] = useInputs({
+    id: 0,
+    category: 'meal',
+    text: '',
+    amount: 0,
   });
 
-  const onChange = e => {
-    const { name, value } = e.target;
-    setInputs({ ...inputs, [name]: value });
-  };
   const onSubmit = e => {
     e.preventDefault();
     console.log(inputs.category, inputs.text, inputs.amount);
+    if (!inputs.text || !inputs.amount) {
+      alert('값을 확인해 주세요.');
+      return;
+    }
     dispatch({
       type: 'EDIT',
       household: {
@@ -138,7 +152,9 @@ function HouseholdItem({ id, title, category, text, amount }) {
         amount: Number(inputs.amount),
       },
     });
-
+    setInputs({
+      category: 'meal',
+    });
     setEditDialog(false);
   };
 
@@ -178,15 +194,14 @@ function HouseholdItem({ id, title, category, text, amount }) {
       >
         정말로 삭제하시겠습니까
       </Dialog>
-      <Dialog
-        title="수정하시겠습니까?"
-        confirmText="수정"
-        cancelText="취소"
-        visible={editDialog}
-        onConfirm={onSubmit}
-        onCancle={onEditCancle}
-      >
-        <form>
+      <form onSubmit={onSubmit}>
+        <Dialog
+          title="수정하시겠습니까?"
+          confirmText="수정"
+          cancelText="취소"
+          visible={editDialog}
+          onCancle={onEditCancle}
+        >
           <Select name="category" onChange={onChange}>
             <option value="meal">식사</option>
             <option value="bmw">교통</option>
@@ -203,9 +218,10 @@ function HouseholdItem({ id, title, category, text, amount }) {
             name="amount"
             placeholder="가격"
             onChange={onChange}
+            onKeyUp={onlyNumber}
           />
-        </form>
-      </Dialog>
+        </Dialog>
+      </form>
     </>
   );
 }

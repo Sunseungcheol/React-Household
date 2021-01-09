@@ -3,7 +3,6 @@ import './reset.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Template from './components/Template';
 import HouseholdHead from './components/HouseholdHead';
-import CategorySelect from './components/CategorySelect';
 import HouseholdList from './components/HouseholdList';
 import HouseholdCreate from './components/HouseholdCreate';
 import { HouseProvider } from './components/HouseholdContext';
@@ -26,11 +25,11 @@ function App() {
     >
       <>
         <HouseProvider>
-          <GlobalStyle></GlobalStyle>
+          <GlobalStyle />
           <Template>
-            <HouseholdHead></HouseholdHead>
-            <HouseholdList></HouseholdList>
-            <HouseholdCreate></HouseholdCreate>
+            <HouseholdHead />
+            <HouseholdList />
+            <HouseholdCreate />
           </Template>
         </HouseProvider>
       </>

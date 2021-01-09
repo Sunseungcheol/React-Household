@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHouseholdState } from './HouseholdContext';
 import HouseholdItem from './HouseholdItem';
-import CategorySelect from './CategorySelect';
 
 const HouseholdListBlock = styled.div`
   flex: 1;
@@ -57,7 +56,22 @@ function HouseholdList() {
         </select>
       </CategorySelectBlock>
       <HouseholdListBlock>
-        {households.map(household =>
+        {households
+          .filter(
+            household =>
+              selectName === 'all' || household.category === selectName
+          )
+          .map(household => (
+            <HouseholdItem
+              key={household.id}
+              id={household.id}
+              title={changeTitle(household.category)}
+              category={household.category}
+              text={household.text}
+              amount={household.amount}
+            ></HouseholdItem>
+          ))}
+        {/* {households.map(household =>
           selectName === 'all' ? (
             <HouseholdItem
               key={household.id}
@@ -79,7 +93,7 @@ function HouseholdList() {
           ) : (
             ''
           )
-        )}
+        )} */}
       </HouseholdListBlock>
     </>
   );

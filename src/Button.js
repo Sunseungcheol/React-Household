@@ -63,17 +63,12 @@ const StyledBtn = styled.button`
   }
 `;
 
-function Button({ children, color, size, ...rest }) {
+function Button({ children, color = 'blue', size = 'medium', ...rest }) {
   return (
     <StyledBtn color={color} size={size} {...rest}>
       {children}
     </StyledBtn>
   );
 }
-
-Button.defaultProps = {
-  color: 'blue',
-  size: 'medium',
-};
 
 export default Button;

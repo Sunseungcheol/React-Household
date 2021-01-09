@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { MdAdd } from 'react-icons/md';
 import Dialog from '../Dialog';
 import { useHouseholdDispatch, useHouseholdNextId } from './HouseholdContext';
+import useInputs from './useInputs';
 
 const CircleBtn = styled.button`
   display: flex;
@@ -68,7 +69,14 @@ function HouseholdCreate() {
   const dispatch = useHouseholdDispatch();
   const nextId = useHouseholdNextId();
 
-  const [inputs, setInputs] = useState({
+  // const [inputs, setInputs] = useState({
+  //   id: 0,
+  //   category: 'meal',
+  //   text: '',
+  //   amount: 0,
+  // });
+
+  const [inputs, setInputs, onChange, onlyNumber] = useInputs({
     id: 0,
     category: 'meal',
     text: '',
@@ -77,13 +85,14 @@ function HouseholdCreate() {
 
   const { category, text, amount } = inputs;
 
-  const onChange = e => {
-    const { name, value } = e.target;
-    setInputs({ ...inputs, [name]: value });
-  };
-
   const onSubmit = e => {
     e.preventDefault();
+    console.log(category, text, amount);
+
+    if (!text || !amount) {
+      alert('값을 확인해 주세요.', text, amount);
+      return;
+    }
     dispatch({
       type: 'CREATE',
       household: {
@@ -106,6 +115,12 @@ function HouseholdCreate() {
     setDialog(!dialog);
   };
   const onCancle = () => {
+    setInputs({
+      id: 0,
+      category: 'meal',
+      text: '',
+      amount: 0,
+    });
     setDialog(false);
   };
 
@@ -114,13 +129,12 @@ function HouseholdCreate() {
       <CircleBtn onClick={onToggle} dialog={dialog}>
         <MdAdd></MdAdd>
       </CircleBtn>
-      <Dialog
-        title={'입력 후 확인을 누르세요'}
-        visible={dialog}
-        onConfirm={onSubmit}
-        onCancle={onCancle}
-      >
-        <form>
+      <form onSubmit={onSubmit}>
+        <Dialog
+          title={'입력 후 확인을 누르세요'}
+          visible={dialog}
+          onCancle={onCancle}
+        >
           <Select name="category" onChange={onChange}>
             <option value="meal">식사</option>
             <option value="bmw">교통</option>
@@ -133,13 +147,14 @@ function HouseholdCreate() {
             onChange={onChange}
           />
           <Input
-            type="text"
+            type="number"
             name="amount"
             placeholder="가격"
             onChange={onChange}
+            onKeyUp={onlyNumber}
           />
-        </form>
-      </Dialog>
+        </Dialog>
+      </form>
     </>
   );
 }

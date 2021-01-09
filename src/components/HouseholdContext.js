@@ -67,11 +67,11 @@ export function HouseProvider({ children }) {
 
 //커스텀 훅
 export function useHouseholdState() {
-  const context = useContext(HouseholdDispatchContext);
+  const context = useContext(HouseholdStateContext);
   if (!context) {
     throw new Error('Cannot find HouseholdStateContext');
   }
-  return useContext(HouseholdStateContext);
+  return context;
 }
 
 export function useHouseholdDispatch() {
@@ -79,7 +79,7 @@ export function useHouseholdDispatch() {
   if (!context) {
     throw new Error('Cannot find HouseholdDispatchContext');
   }
-  return useContext(HouseholdDispatchContext);
+  return context;
 }
 
 export function useHouseholdNextId() {
@@ -87,5 +87,5 @@ export function useHouseholdNextId() {
   if (!context) {
     throw new Error('Cannot find TodoProvider');
   }
-  return useContext(HouseholdNextIdContext);
+  return context;
 }

@@ -43,7 +43,6 @@ function Dialog({
   confirmText,
   cancelText,
   visible,
-  onConfirm,
   onCancle,
 }) {
   if (!visible) return null;
@@ -53,10 +52,10 @@ function Dialog({
         <h3>{title}</h3>
         <div>{children}</div>
         <ButtonGroup>
-          <Button color="blue" onClick={onCancle}>
+          <Button color="blue" onClick={onCancle} type="button">
             {cancelText}
           </Button>
-          <Button color="pink" onClick={onConfirm}>
+          <Button color="pink" type="submit">
             {confirmText}
           </Button>
         </ButtonGroup>
