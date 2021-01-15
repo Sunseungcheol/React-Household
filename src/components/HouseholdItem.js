@@ -114,10 +114,10 @@ function HouseholdItem({ id, title, category, text, amount }) {
   };
   const onEditCancle = () => {
     setInputs({
-      id: 0,
-      category: 'meal',
-      text: '',
-      amount: 0,
+      id: id,
+      category: category,
+      text: text,
+      amount: amount,
     });
     setEditDialog(false);
   };
@@ -129,10 +129,10 @@ function HouseholdItem({ id, title, category, text, amount }) {
   // });
 
   const [inputs, setInputs, onChange, onlyNumber] = useInputs({
-    id: 0,
-    category: 'meal',
-    text: '',
-    amount: 0,
+    id: id,
+    category: category,
+    text: text,
+    amount: amount,
   });
 
   const onSubmit = e => {
@@ -153,7 +153,10 @@ function HouseholdItem({ id, title, category, text, amount }) {
       },
     });
     setInputs({
-      category: 'meal',
+      id: id,
+      category: category,
+      text: text,
+      amount: amount,
     });
     setEditDialog(false);
   };
@@ -202,7 +205,12 @@ function HouseholdItem({ id, title, category, text, amount }) {
           visible={editDialog}
           onCancle={onEditCancle}
         >
-          <Select name="category" onChange={onChange}>
+          <Select
+            name="category"
+            onChange={onChange}
+            autoFocus
+            defaultValue={category}
+          >
             <option value="meal">식사</option>
             <option value="bmw">교통</option>
             <option value="hospital">병원</option>
@@ -212,13 +220,15 @@ function HouseholdItem({ id, title, category, text, amount }) {
             name="text"
             placeholder="내용"
             onChange={onChange}
+            defaultValue={text}
           />
           <Input
             type="text"
             name="amount"
             placeholder="가격"
             onChange={onChange}
-            onKeyUp={onlyNumber}
+            onKeyPress={onlyNumber}
+            defaultValue={amount}
           />
         </Dialog>
       </form>

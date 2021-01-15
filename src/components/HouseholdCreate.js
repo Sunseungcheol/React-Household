@@ -135,7 +135,7 @@ function HouseholdCreate() {
           visible={dialog}
           onCancle={onCancle}
         >
-          <Select name="category" onChange={onChange}>
+          <Select name="category" onChange={onChange} autoFocus>
             <option value="meal">식사</option>
             <option value="bmw">교통</option>
             <option value="hospital">의료</option>
