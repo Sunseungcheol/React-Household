@@ -32,3 +32,4 @@
  * 디스패치 시 id 값을 넣어 filter 를 이용해 같은 값 제거
 
 
+<img style='max-width:300px; margin-top:50px' src='./img/houseHold.PNG'>
