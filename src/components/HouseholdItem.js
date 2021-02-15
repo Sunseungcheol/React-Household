@@ -227,7 +227,7 @@ function HouseholdItem({ id, title, category, text, amount }) {
             name="amount"
             placeholder="가격"
             onChange={onChange}
-            onKeyPress={onlyNumber}
+            onKeyUp={onlyNumber}
             defaultValue={amount}
           />
         </Dialog>
